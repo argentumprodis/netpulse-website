@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Política de privacidad de NetPulse para Windows.">
+  <title>Política de privacidad | NetPulse</title>
+  <style>
+    :root { color-scheme: light; --ink:#17243b; --muted:#52627a; --blue:#3977f6; --line:#dce4ef; --bg:#f3f6fb; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--ink); font:16px/1.65 system-ui,-apple-system,"Segoe UI",sans-serif; }
+    header { background:#14233d; color:white; padding:34px 20px; }
+    header .wrap, main, footer { width:min(880px, calc(100% - 32px)); margin:auto; }
+    .brand { color:#a9c4ff; font-size:.82rem; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+    h1 { margin:.35rem 0; font-size:clamp(1.8rem,5vw,2.5rem); line-height:1.15; }
+    header p { margin:.6rem 0 0; color:#d7e2f4; }
+    main { margin:28px auto 42px; padding:clamp(22px,5vw,42px); background:white; border:1px solid var(--line); border-radius:16px; box-shadow:0 8px 28px #1b31500d; }
+    h2 { margin:1.8rem 0 .45rem; font-size:1.22rem; }
+    h2:first-child { margin-top:0; }
+    p, li { color:#293951; }
+    a { color:#205bd4; }
+    .updated { color:var(--muted); font-size:.94rem; }
+    .notice { margin:1.2rem 0; padding:14px 16px; border-left:4px solid var(--blue); background:#f2f6ff; border-radius:8px; color:#293951; }
+    .todo { color:#9c3412; font-weight:650; }
+    footer { padding:0 0 28px; color:var(--muted); font-size:.9rem; }
+  </style>
+</head>
+<body>
+  <header><div class="wrap"><div class="brand">NetPulse para Windows</div><h1>Política de privacidad</h1><p>Información sobre los datos utilizados para validar licencias y ofrecer las funciones de red de NetPulse.</p></div></header>
+  <main>
+    <p class="updated"><strong>Vigente desde:</strong> <span>21 de noviembre de 2026</span></p>
+    <h2>1. Responsable y contacto</h2>
+    <p>El responsable del tratamiento de datos de NetPulse es Andrés David Raviol. Para consultas de privacidad o solicitudes sobre tus datos, escribí a <a href="mailto:argentumprodis@gmail.com">argentumprodis@gmail.com</a>.</p>
+    <h2>2. Datos que trata NetPulse</h2>
+    <ul>
+      <li><strong>Licencia y prueba:</strong> la clave ingresada, el identificador de compilación y el identificador del equipo obtenido de Windows (MachineGuid; si no está disponible, nombre de equipo y usuario). Se envían al servicio de validación para comprobar la licencia o iniciar la prueba. El servicio calcula un hash del identificador del equipo para asociar la licencia a un dispositivo.</li>
+      <li><strong>Datos de licencia:</strong> el servicio puede conservar la clave, el plan, su estado, vencimiento, nombre del cliente si fue proporcionado al crear la licencia y el hash del identificador asociado.</li>
+      <li><strong>Diagnóstico de conexión:</strong> las pruebas de latencia, pérdida y MTU se ejecutan en el equipo hacia el destino que se muestra en la aplicación. Los resultados se usan para mostrar el diagnóstico; no se envían al servicio de licencias.</li>
+      <li><strong>Selección de juego:</strong> la ruta del ejecutable elegido se guarda localmente para recordar la selección. Cuando la priorización está habilitada, NetPulse consulta procesos activos y sus nombres para reconocer juegos y aplicar o restaurar prioridades y reglas QoS.</li>
+      <li><strong>Configuración DNS:</strong> NetPulse mide resolutores y, cuando confirmás el cambio, puede modificar los DNS de la interfaz de Windows. Las consultas que Windows envíe luego al resolutor configurado también quedan sujetas a la política de ese proveedor.</li>
+      <li><strong>Datos técnicos de solicitudes:</strong> el servicio de validación y su proveedor de infraestructura pueden procesar datos técnicos necesarios para responder y proteger el servicio, como dirección IP, fecha y metadatos de la solicitud. La retención depende de la configuración efectiva de Cloudflare.</li>
+    </ul>
+    <h2>3. Para qué se usan</h2>
+    <ul><li>Validar claves, administrar pruebas y vencimientos, y vincular una licencia a un dispositivo.</li><li>Mostrar las mediciones de conexión solicitadas.</li><li>Aplicar y restaurar los cambios de DNS, prioridades de procesos y QoS que el usuario active.</li><li>Operar, proteger y mantener el servicio de licencias.</li></ul>
+    <p>NetPulse no usa las mediciones locales para crear perfiles publicitarios ni envía esos resultados al servicio de licencias.</p>
+    <h2>4. Dónde se guardan y quién los recibe</h2>
+    <p>La clave se guarda localmente en Windows protegida mediante DPAPI. La ruta del ejecutable seleccionado y determinados registros operativos se guardan en el perfil del usuario. La validación se realiza mediante Cloudflare Workers y Cloudflare D1; los datos enviados pueden procesarse en la infraestructura de Cloudflare conforme a sus condiciones y a la configuración del servicio.</p>
+    <p>Los proveedores DNS reciben las consultas que Windows les envía cuando se encuentran configurados. Revisá sus propias políticas para conocer cómo manejan esas consultas.</p>
+    <h2>5. Conservación</h2>
+    <p>Los datos de licencias se conservan mientras sean necesarios para administrar su validez, vencimiento, renovaciones y prevención de usos no autorizados, y luego durante el plazo exigido por obligaciones legales o de seguridad. Los archivos locales permanecen en el equipo hasta que se eliminen desde la aplicación, manualmente o al desinstalar NetPulse, según el archivo.</p>
+    <p><strong>Plazos específicos:</strong> los registros de Workers Logs del plan gratuito se conservan durante 3 días. Los registros de licencias en D1 (clave, plan, estado, vencimiento y hash del identificador del equipo) no se eliminan automáticamente por ese plazo: el responsable los conserva hasta que los elimine o implemente un plazo de eliminación. Los archivos locales permanecen hasta que el usuario los elimine o desinstale la aplicación, según el archivo.</p>
+    <h2>6. Cambios de configuración y control del usuario</h2>
+    <p>NetPulse informa y solicita confirmación antes de cambios manuales de DNS y requiere permisos de Windows para las funciones que los necesitan. La priorización automática puede ajustar temporalmente la prioridad de los procesos de juegos y las reglas QoS mientras se ejecutan, y restaurar los valores al cerrarse o al detenerse la función. El usuario puede desactivar estas funciones desde la aplicación.</p>
+    <p>Un cambio de DNS afecta la configuración de red de este equipo, no la del router. Si desinstalás la aplicación, revisá y restaurá desde NetPulse cualquier ajuste de red que siga aplicado.</p>
+    <h2>7. Derechos sobre los datos</h2>
+    <p>Podés solicitar acceso, rectificación, actualización o supresión de los datos personales asociados a tu licencia escribiendo a <a href="mailto:argentumprodis@gmail.com">argentumprodis@gmail.com</a>. Para localizar una licencia puede ser necesario verificar que sos su titular. En Argentina, podés consultar tus derechos ante la <a href="https://www.argentina.gob.ar/aaip/datospersonales/derechos" rel="noopener noreferrer">Agencia de Acceso a la Información Pública</a>.</p>
+    <h2>8. Seguridad</h2>
+    <p>Se aplican medidas razonables para proteger la información, incluida la transmisión HTTPS hacia el servicio de validación y el almacenamiento local protegido de la clave. Ningún método de transmisión o almacenamiento puede garantizar seguridad absoluta.</p>
+    <h2>9. Cambios en esta política</h2>
+    <p>Esta política puede actualizarse si cambian NetPulse, sus proveedores o sus prácticas. La fecha de vigencia al comienzo de esta página identifica la versión actual.</p>
+    <h2>10. Autoridad de control en Argentina</h2>
+    <p>La Agencia de Acceso a la Información Pública, autoridad de control de la Ley 25.326, recibe consultas y reclamos. <a href="https://www.argentina.gob.ar/aaip/datospersonales" rel="noopener noreferrer">Información sobre protección de datos</a>.</p>
+  </main>
+  <footer><p>© <span id="year"></span> NetPulse. Contactá al responsable indicado en esta política.</p></footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
